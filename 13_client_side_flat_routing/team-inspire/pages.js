@@ -7,6 +7,7 @@ class InspireHome extends HTMLElement {
         <li><a href="/product/eicher">Eicher</a></li>
         <li><a href="/product/porsche">Porsche</a></li>
         <li><a href="/product/fendt">Fendt</a></li>
+        <li><a href="/broke-link">Broken Link</a></li>
       </ul>
     `;
   }
