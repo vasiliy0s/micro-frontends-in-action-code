@@ -2,6 +2,8 @@
   <head>
     <title>The Tractor Store</title>
     <script src="https://unpkg.com/history@4.9.0"></script>
+    <script src="/pages.js" async></script>
+    <script src="/popup-info.js" async></script>
     <script src="http://localhost:3001/pages.js" async></script>
     <script src="http://localhost:3002/pages.js" async></script>
     <script src="http://localhost:3003/pages.js" async></script>
@@ -21,11 +23,12 @@
         "/product/eicher": "decide-product-eicher",
         "/checkout/cart": "checkout-cart",
         "/checkout/pay": "checkout-pay",
-        "/checkout/success": "checkout-success"
+        "/checkout/success": "checkout-success",
+        "/404": "page-404",
       };
 
       function findComponentName(pathname) {
-        return routes[pathname];
+        return routes[pathname] || routes['/404'];
       }
 
       function updatePageComponent(location) {
@@ -37,9 +40,13 @@
         }
       }
 
+      function initRouter() {
+        updatePageComponent(window.location);
+      }
+
       const appHistory = window.History.createBrowserHistory();
       appHistory.listen(updatePageComponent);
-      updatePageComponent(window.location);
+      initRouter();
 
       document.addEventListener("click", e => {
         if (e.target.nodeName === "A") {

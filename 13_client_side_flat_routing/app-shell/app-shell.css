@@ -91,6 +91,15 @@ checkout-success::after {
   background: #5f9dc8;
 }
 
+page-404 {
+  border: 3px solid #E66939;
+}
+
+page-404::after {
+  content: "Team AppShell";
+  background: #E66939;
+}
+
 footer {
   margin-bottom: 1rem;
   text-align: center;
